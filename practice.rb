@@ -1,7 +1,3 @@
-# Cryptocurrency is all the rage. You have decided to create your own,
-# KelloggCoin, that will massively disrupt financial markets at the Global
-# Hub.
-
 # Don't change the following code, which represents a series of transactions, each
 # of which represents a transfer of KelloggCoin from one user to another – transactions 
 # with no from_user are from the "ICO" (Initial Coin Offering)
@@ -27,3 +23,16 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+
+for user in ["ben", "brian", "evan", "anthony"]
+  balance = 0
+  blockchain.each do |transaction|
+    if transaction["from_user"] == user
+      balance -= transaction["amount"]
+    elsif transaction["to_user"] == user
+      balance += transaction["amount"]
+    end
+  end
+  puts "#{user}'s KelloggCoin balance is #{balance}"
+end
